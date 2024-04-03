@@ -21,3 +21,5 @@
 4. ts-node src/index/ts   compile
 5.  package.json    scripts: build and  serve for deployment
 6. fluent-ffmpeg    process video; wrapper; CLI, command line tool 
+
+7. docker : Containers allow us to package our app and all its dependencies into a single image. 

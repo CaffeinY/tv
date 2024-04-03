@@ -21,11 +21,11 @@ app.post("/process-video", (req, res) => {
     // use ffmpeg to process
     // ffmpeg ascnchronously process the video file
     ffmpeg(inputFilePath)
-        .outputOptions("-vf", "scale=-1:360") // 360p
-        .on("end", () => {
+        .outputOptions("-vf", "scale=-1:1080") // 360p
+        .on("end", () => {  // when the process is done
             res.status(200).send("Video processing started.");  
-        })
-        .on("error", (err) => {
+        }) 
+        .on("error", (err) => { // when an error occurs
             console.log(`An error occurred: ${err.message}`);
             res.status(500).send(`Internal Server Error: ${err.message}`);
         })
