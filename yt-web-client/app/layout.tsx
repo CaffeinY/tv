@@ -6,8 +6,8 @@ import Navbar from "./navbar/navbar";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Youtube",
-  description: "Youtube clone",
+  title: "FGTV",
+  description: "FGTV for YyF's videos",
 };
 
 export default function RootLayout({

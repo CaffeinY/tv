@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from 'next/link';
 import styles from "./page.module.css";
-import { getVideos } from "./utils/firebase/functions";
+import { getVideos, getUserInfo } from "./utils/firebase/functions";
 
 
 
@@ -9,7 +9,8 @@ import { getVideos } from "./utils/firebase/functions";
 
 export default async function Home() {
   const videos = await getVideos();
-  
+  const userInfo = await getUserInfo();
+
   return (
     <main>
       {

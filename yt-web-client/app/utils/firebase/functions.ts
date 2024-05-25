@@ -2,11 +2,9 @@ import { getFunctions, httpsCallable } from "firebase/functions";
 import { functions } from './firebase';
 
 
-
-
 const generateUploadUrlFunction = httpsCallable(functions, "generateUploadUrl");
 const getVideosFunction = httpsCallable(functions, 'getVideos');
-
+const getUserInfoFunction = httpsCallable(functions, 'getUserInfo');
 
 export async function uploadVideo(file: File) {
   const response: any = await generateUploadUrlFunction({
@@ -41,3 +39,14 @@ export async function getVideos() {
   return response.data as Video[];
 }
 
+export interface userInfo {
+  email?: string,
+  photoURL?: string,
+  uid?: string,
+  upload?: boolean
+}
+
+export async function getUserInfo(auth: any) {
+  const response: any = await getUserInfoFunction(auth);
+  return response.data as userInfo;
+}

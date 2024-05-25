@@ -8,9 +8,10 @@ import { onAuthStateChangedHelper } from '../utils/firebase/firebase';
 import { useEffect, useState } from 'react';
 import { User } from 'firebase/auth';
 import Upload from './upload';
+import { getUserInfo } from "../utils/firebase/functions";
 
 
-export default function Navbar() {
+export default async function Navbar() {
     // init user state
     const [user, setUser] = useState<User | null>(null);
 
@@ -31,13 +32,13 @@ export default function Navbar() {
             {/* by default, it will look for public */}
             <Link href="/">
                 <span className={styles.logoContainer}>
-                    <Image width={90} height={20}
-                        src="/youtube-logo.svg" alt="Youtube Logo" />
+                    <Image width={150} height={100}
+                        src="/FGTV-LOGO.png" alt="FGTV Logo" />
                 </span>
             </Link>
 
             {
-                user && <Upload />
+                user  && <Upload />
             }
 
 

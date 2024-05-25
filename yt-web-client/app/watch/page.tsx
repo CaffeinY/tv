@@ -2,6 +2,7 @@
 
 import { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
+import styles from "./page.module.css";
 
 function VideoPlayer() {
   const searchParams = useSearchParams();
@@ -9,13 +10,13 @@ function VideoPlayer() {
   const videoPrefix =
     "https://storage.googleapis.com/caff1enn-yt-processed-videos/";
 
-  return <video controls src={`${videoPrefix}${videoSrc}`} />;
+  return <video className={styles.responsiveVideo} controls src={`${videoPrefix}${videoSrc}`} />;
 }
 
 export default function Watch() {
   return (
     <div>
-      <h1>Watch Page</h1>
+
       <Suspense fallback={<div>Loading video...</div>}>
         <VideoPlayer />
       </Suspense>
